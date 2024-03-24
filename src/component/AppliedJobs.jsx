@@ -7,7 +7,6 @@ const AppliedJobs = () => {
     const jobs = useLoaderData();
 
     const [appliedJobs, setAppliedJobs] = useState([]);
-
     const[displayJobs, setDisplayJobs]= useState([]);
 
     const handleJobsFilter= filter=>{
@@ -40,6 +39,7 @@ const AppliedJobs = () => {
             
 
             setAppliedJobs(jobsApplied)
+            setDisplayJobs(jobsApplied)
         }
     }, [jobs])
     return (
@@ -59,7 +59,7 @@ const AppliedJobs = () => {
 
             <ul>
                 {
-                    appliedJobs.map(job =>
+                    displayJobs.map(job =>
 
                         <li className="text-2xl text-sky-200" key={job.id}><span>{job.job_title} {job.company_name}: {job.remote_or_onsite}</span></li>)
                 }
