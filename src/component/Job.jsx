@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 
 const Job = ({ job }) => {
-    const {id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
+    const { id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
     return (
-        <div className="card card-compact  bg-base-100 shadow-xl border border-cyan-500">
+        <div className="card card-compact  bg-base-100 shadow-xl border border-cyan-500 mt-10 p-10">
             <figure><img src={logo} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{job_title}</h2>
@@ -19,10 +19,10 @@ const Job = ({ job }) => {
                     <h2 className="flex gap-2  items-center"><CiLocationOn></CiLocationOn> {location}</h2>
                     <h2 className="flex gap-2 items-center"><HiOutlineCurrencyDollar></HiOutlineCurrencyDollar> {salary}</h2>
                 </div>
-                <div className="card-actions ">
-                   <Link to={`/job/${id}`}>
-                   <button className="btn btn-primary">View details</button>
-                   </Link>
+                <div className="card-actions">
+                    <Link to={`/job/${id}`}>
+                        <button className="btn btn-primary">View details</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ const ErrorPage = () => {
     return (
         <div className="min-h-screen text-4xl text-center font-extrabold flex flex-col items-center justify-center">
             <h2>Oppssssss!!!</h2>
-            <Link to='/'>Click me & Go back to home</Link>
+            <Link to='/'><button className="btn btn-primary mt-5">Go back to home</button></Link>
         </div>
     );
 };

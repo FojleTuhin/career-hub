@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import { useEffect, useState } from "react";
 import Job from "./component/Job";
 
@@ -23,7 +22,7 @@ const FeaturedJobs = () => {
                     jobs.slice(0, dataLength).map(job => <Job key={job.id} job={job}></Job>)
                 }
             </div>
-            <div className="text-center mt-10">
+            <div className="text-center mt-10 mb-10">
                 <div className={dataLength === jobs.length && 'hidden'}>
                     <button onClick={() => setDataLength(jobs.length)} className="btn btn-primary text-center">Show All Jobs</button>
                 </div>

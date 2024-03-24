@@ -7,19 +7,19 @@ const AppliedJobs = () => {
     const jobs = useLoaderData();
 
     const [appliedJobs, setAppliedJobs] = useState([]);
-    const[displayJobs, setDisplayJobs]= useState([]);
+    const [displayJobs, setDisplayJobs] = useState([]);
 
-    const handleJobsFilter= filter=>{
-        if(filter==="all"){
+    const handleJobsFilter = filter => {
+        if (filter === "all") {
             setDisplayJobs(appliedJobs);
         }
-        else if(filter==="remote"){
-            const remoteJobs=appliedJobs.filter(job=> job.remote_or_onsite==="Remote");
+        else if (filter === "remote") {
+            const remoteJobs = appliedJobs.filter(job => job.remote_or_onsite === "Remote");
             setDisplayJobs(remoteJobs);
         }
 
-        else if(filter==="onsite"){
-            const onsiteJobs=appliedJobs.filter(job=>job.remote_or_onsite==='Onsite');
+        else if (filter === "onsite") {
+            const onsiteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Onsite');
             setDisplayJobs(onsiteJobs);
         }
     }
@@ -36,7 +36,7 @@ const AppliedJobs = () => {
                 }
             }
 
-            
+
 
             setAppliedJobs(jobsApplied)
             setDisplayJobs(jobsApplied)
@@ -46,16 +46,16 @@ const AppliedJobs = () => {
         <div>
             <h2 className="text-3xl font-bold text-yellow-700">Applied jobs:{appliedJobs.length}</h2>
 
-           <div className="flex justify-end mr-20 mb-20">
-           <details className="dropdown">
-                <summary className="m-1 btn">Filter</summary>
-                <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-32">
-                    <li onClick={()=> handleJobsFilter('remote')}><a>Remote</a></li>
-                    <li onClick={()=> handleJobsFilter('onsite')}><a>Onsite</a></li>
-                    <li onClick={()=> handleJobsFilter('all')}><a>All</a></li>
-                </ul>
-            </details>
-           </div>
+            <div className="flex justify-end mr-20 mb-20">
+                <details className="dropdown">
+                    <summary className="m-1 btn">Filter</summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-32">
+                        <li onClick={() => handleJobsFilter('remote')}><a>Remote</a></li>
+                        <li onClick={() => handleJobsFilter('onsite')}><a>Onsite</a></li>
+                        <li onClick={() => handleJobsFilter('all')}><a>All</a></li>
+                    </ul>
+                </details>
+            </div>
 
             <ul>
                 {
