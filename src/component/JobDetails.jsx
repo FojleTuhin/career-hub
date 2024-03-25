@@ -1,21 +1,26 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveJobApplication } from "../localStorage";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const JobDetails = () => {
     const jobs = useLoaderData();
     const { id } = useParams();
     const idInt = parseInt(id)
     const job = jobs.find(job => job.id === idInt);
-    console.log(job)
 
     const handleApplyJob = () => {
         saveJobApplication(idInt);
+        toast("Your request submitted!");
     }
 
 
 
     return (
+        
         <div>
+            <ToastContainer></ToastContainer>
             <div>
                 <h2 className="text-center font-bold text-3xl pt-14 pb-14">Job Details</h2>
             </div>
@@ -44,6 +49,21 @@ const JobDetails = () => {
 
                         <p className="text-xl font-bold mt-4 mb-4">Contact Information</p>
                         <hr className="mb-4"/>
+
+                        <div className="flex gap-2 items-center">
+                            <img className="w-5 h-5" src="/public/assets/icons/calendar.png" alt="" />
+                            <h2 className="mb-2"> <span className="font-bold">Phone</span>: {job.contact_information.phone} </h2>
+                        </div>
+
+                        <div className="flex gap-2 items-center">
+                            <img className="w-5 h-5" src="/public/assets/icons/calendar.png" alt="" />
+                            <h2 className="mb-2"> <span className="font-bold">Email</span>: {job.contact_information.email} </h2>
+                        </div>
+
+                        <div className="flex gap-2 items-center">
+                            <img className="w-5 h-5" src="/public/assets/icons/calendar.png" alt="" />
+                            <h2 className="mb-2"> <span className="font-bold">Address</span>: {job.contact_information.address} </h2>
+                        </div>
 
                     </div>
                     <button onClick={handleApplyJob} className="btn btn-primary w-full">Apply now</button>
